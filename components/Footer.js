@@ -32,7 +32,7 @@ function Footer() {
       <div className="space-y-4 text-xs text-gray-800">
         <h5 className="font-bold">Support</h5>
         <p>Help Centre</p>
-        <p>Trust & support</p>
+        <p>Trust & Support</p>
         <p>Youtube</p>
         <p>LinkedIN</p>
         <p>Facebook</p>
