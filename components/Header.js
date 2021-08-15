@@ -68,6 +68,7 @@ function Header({ placeholder }) {
           layout="fill"
           objectFit="contain"
           objectPosition="left"
+          className="hover:animate-bounce"
         />
       </div>
 
@@ -89,16 +90,16 @@ function Header({ placeholder }) {
       {/* Right */}
       <div className="flex items-center space-x-4 justify-end  text-gray-500">
         <p className="hidden md:inline cursor-pointer">Become a host</p>
-        <GlobeAltIcon className="h-6 cursor-pointer" />
+        <GlobeAltIcon className="h-6 cursor-pointer hover:animate-spin" />
 
-        <div className="flex items-center space-x-2 border-2 p-2 rounded-full">
+        <div className="flex items-center space-x-2 border-2 p-2 rounded-full shadow-sm">
           <MenuIcon className="h-6" />
           <UserCircleIcon className="h-6" />
         </div>
       </div>
 
       {searchInput && (
-        <div className="flex flex-col col-span-3 mx-auto mt-5">
+        <div className="flex flex-col col-span-3 mx-auto mt-3">
           <DateRangePicker
             ranges={[selectionRanges]}
             minDate={new Date()}
@@ -107,7 +108,7 @@ function Header({ placeholder }) {
           />
 
           <div className="flex items-center border-b mb-4">
-            <h2 className="text-2xl flex-grow font-semibold">
+            <h2 className="text-2xl pl-2 flex-grow font-semibold">
               Number of Guests
             </h2>
             <UsersIcon className="h-5" />

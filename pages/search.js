@@ -18,18 +18,18 @@ function Search({ searchResults }) {
   const range = `${formattedStartDate}-${formattedEndDate}`;
 
   return (
-    <div>
-      <Header placeholder={`${location}  | ${range}| ${noOfGuest} guests `} />
-      <main className="flex">
+    <div className="h-screen">
+      <Header placeholder={`${location} | ${range} | ${noOfGuest} guests `} />
+      <main className="flex ">
         <section className="flex-grow pt-14 px-6">
-          <p className="text-xs ">
-            300+ Stays - {range} for {noOfGuest} number of guests
+          <p className="text-xs  ">
+            300+ Stays | {range} | {noOfGuest} number of guests
           </p>
-          <h1 className="text-3xl font-semibold mt-2 mb-6">
+          <h1 className="text-3xl font-semibold mt-2 mb-5">
             Stays in {location}
           </h1>
 
-          <div className="hidden lg:inline-flex md-5 space-x-3 text-gray-800 whitespace-nowrap">
+          <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
             <p className="button">Cancellation Flexibility</p>
             <p className="button">Types of Place</p>
             <p className="button">Price</p>

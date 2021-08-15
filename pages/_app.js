@@ -6,7 +6,7 @@ import Router from "next/router";
 const progress = new ProgressBar({
   // The size (height) of the progress bar.
   // Numeric values get converted to px.
-  size: 6,
+  size: 5,
 
   color: "#FD6064",
 
@@ -18,7 +18,7 @@ const progress = new ProgressBar({
   // animation starts after calling .start().
   delay: 100,
 });
-
+    
 Router.events.on("routeChangeStart", progress.start);
 Router.events.on("routeChangeComplete", progress.finish);
 Router.events.on("routeChangeError", progress.finish);
