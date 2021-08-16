@@ -14,7 +14,7 @@ function Banner() {
           <TypeWriter typing={0.5}>Not sure where to go? Perfect.</TypeWriter>
         </p>
 
-        <button className="text-purple-500 bg-white hover:bg-red-400 hover:text-white px-10 py-4 shadow-md rounded-full font-bold my-3 hover:shadow-xl active:scale-90 transition duration-150 hover:animate-pulse">
+        <button className="text-purple-500 bg-white  px-10 py-4 shadow-md rounded-full font-bold my-3 hover:shadow-xl active:scale-90 transition duration-150 hover:animate-pulse">
           I'm flexible
         </button>
       </div>
