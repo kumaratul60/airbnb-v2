@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import LargeCard from "../components/LargeCard";
+import LargeCard1 from "../components/LargeCard1";
 import MediumCard from "../components/MediumCard";
 import SmallCard from "../components/SmallCard";
 
@@ -44,15 +45,24 @@ export default function Home({ exploreData, cardData }) {
             ))}
           </div>
         </section>
-        <LargeCard className
-         img = 'https://links.papareact.com/4cj'
-         title = "The greatest Outdoors"
-         description = "Wishlists curated by Airbnb."
-         buttonText = "Get Inspired"
-         />
+        <LargeCard1
+          className
+          img="https://a0.muscache.com/im/pictures/2595054e-d1d9-4fde-8046-58d51fcb3164.jpg?im_w=1440"
+          title="Try hosting"
+          description="Earn extra income and unlock new opportunities."
+          buttonText="Learn more"
+        />
+
+        <LargeCard
+          className
+          img="https://links.papareact.com/4cj"
+          title="The greatest Outdoors"
+          description="Wishlists curated by Airbnb."
+          buttonText="Get Inspired"
+        />
       </main>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }
