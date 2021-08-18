@@ -52,6 +52,7 @@ export default function Home({ exploreData, cardData }) {
           description="Earn extra income and unlock new opportunities."
           buttonText="Learn more"
         />
+       
 
         <LargeCard
           className
