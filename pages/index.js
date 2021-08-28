@@ -17,7 +17,9 @@ export default function Home({ exploreData, cardData }) {
       </Head>
 
       <Header />
+
       <Banner />
+
       {/* mx-auto -> for center */}
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
         <section className="pt-6">
@@ -52,7 +54,6 @@ export default function Home({ exploreData, cardData }) {
           description="Earn extra income and unlock new opportunities."
           buttonText="Learn more"
         />
-       
 
         <LargeCard
           className

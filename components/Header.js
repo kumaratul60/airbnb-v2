@@ -21,6 +21,7 @@ function Header({ placeholder }) {
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuest, setNoOfGuest] = useState(1);
   const router = useRouter();
+  const [showSearch, setShowSearch] = useState(false);
 
   // console.log(searchInput);
 
@@ -53,6 +54,9 @@ function Header({ placeholder }) {
     });
   };
 
+  const handleSearch = () => {
+    setShowSearch(!showSearch);
+  };
   return (
     // pading in x-axis 5 -> py-5, pading-5 in all direction -> p-5
     // padding-left:5 -> pl-5
@@ -84,6 +88,7 @@ function Header({ placeholder }) {
           type="text"
           placeholder={placeholder || "Start your search"}
         />
+
         <SearchIcon className="h-8 hidden md:inline-flex bg-red-400 text-white rounded-full p-2 cursor-poiter md:mx-2" />
       </div>
 
