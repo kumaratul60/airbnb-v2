@@ -19,7 +19,7 @@ function LargeCard({ img, title, description, buttonText }) {
         <button className="text-sm text-white bg-gray-900 px-4 py-2 rounded-lg mt-5 shadow-md  hover:bg-green-500 active:scale-90 transition duration-150 ease-out">
           {buttonText}{" "}
           <a href="https://github.com/kumaratul60/airbnb-v2" className="font-bold">
-            ATUL{" "}
+          Get Inspired by ATUL{" "}
           </a>
         </button>
       </div>

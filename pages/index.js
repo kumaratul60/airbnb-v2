@@ -60,7 +60,7 @@ export default function Home({ exploreData, cardData }) {
           img="https://links.papareact.com/4cj"
           title="The greatest Outdoors"
           description="Wishlists curated by Airbnb."
-          buttonText="Get Inspired by"
+          // buttonText="Get Inspired by"
         />
       </main>
 
