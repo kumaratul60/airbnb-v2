@@ -17,19 +17,31 @@ function Search({ searchResults }) {
   const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
   const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
   const range = `${formattedStartDate}-${formattedEndDate}`;
+  const formattedLocation =
+    location.charAt(0).toUpperCase() + location.slice(1);
 
   return (
     <div className="h-screen">
-      <Header placeholder={`${location} | ${range} | ${noOfGuest} guests `} />
+      <Header
+        placeholder={`${formattedLocation} | ${range} | ${noOfGuest} guests `}
+      />
       <main className="flex ">
         <section className="flex-grow pt-14 px-6">
-          <p className="text-xs  ">
+          {/* <p className="text-xs  ">
             300+ Stays | {range} | {noOfGuest} number of guests
-          </p>
+          </p> */}
+          200+ Stays -{" "}
+          <span className="bg-red-400 text-white px-2 py-1 rounded-xl">
+            {formattedStartDate}
+          </span>{" "}
+          -{" "}
+          <span className="bg-red-400 text-white px-2 py-1 rounded-xl">
+            {formattedEndDate}
+          </span>{" "}
+          - for {noOfGuest} guests
           <h1 className="text-3xl font-semibold mt-2 mb-5">
-            Stays in {location}
+            Stays in {formattedLocation}
           </h1>
-
           <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
             <p className="button">Cancellation Flexibility</p>
             <p className="button">Types of Place</p>
@@ -57,7 +69,7 @@ function Search({ searchResults }) {
 
         {/* hidden xl:inline-flex */}
         <section className="hidden xl:inline-flex xl:min-w-[600px]">
-          <Map  searchResults = {searchResults} />
+          <Map searchResults={searchResults} />
         </section>
       </main>
 

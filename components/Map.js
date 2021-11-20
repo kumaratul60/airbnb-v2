@@ -1,5 +1,8 @@
 import { useState } from "react";
+import Image from "next/image";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
+
+import { LocationMarkerIcon } from "@heroicons/react/solid";
 import getCenter from "geolib/es/getCenter";
 
 function Map({ searchResults }) {
@@ -18,18 +21,20 @@ function Map({ searchResults }) {
     latitude: result.lat,
   }));
 
-  //   console.log(coordinates);
+  console.log(coordinates);
 
-  const center = getCenter(coordinates);
+  // const center = getCenter(coordinates);
+  const { latitude, longitude } = getCenter(coordinates);
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "100%",
-    latitude: center.latitude,
-    longitude: center.longitude,
+    latitude,
+    longitude,
     zoom: 11,
   });
 
   console.log(selectedLocation);
+  console.log(searchResults);
 
   return (
     <ReactMapGL
@@ -38,36 +43,46 @@ function Map({ searchResults }) {
       {...viewport}
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
     >
-      {searchResults.map((result) => (
-        <div key={result.long}>
+      {searchResults.map(({ lat, long, title, img, price, star, location }) => (
+        <div key={long}>
           <Marker
-            longitude={result.long}
-            latitude={result.lat}
+            longitude={long}
+            latitude={lat}
             // pin dops perfectly by using offset
 
             offsetLeft={-20}
             offsetTop={-10}
           >
-            <p
+            {/* <p
               role="img"
-              onClick={() => setSelectedLocation(result)}
+              onClick={() => setSelectedLocation({ lat, long })}
               className="cursor-pointer text-2xl animate-bounce"
               aria-label="push-pin"
             >
               📌
-            </p>
+             
+            </p> */}
+            <LocationMarkerIcon
+              onClick={() => setSelectedLocation({ lat, long })}
+              aria-label="push-pin"
+              className="h-6 text-[#CF2828]  animate-bounce cursor-pointer point "
+            />
           </Marker>
 
-          {/* THis popup that should show if we click on a Marker */}
+          {/* This popup that should show if we click on a Marker */}
 
-          {selectedLocation.long === result.long ? (
+          {selectedLocation.long === long ? (
             <Popup
               onClose={() => setSelectedLocation({})}
               closeOnClick={true}
-              latitude={result.lat}
-              longitude={result.long}
+              latitude={lat}
+              longitude={long}
+              className="w-[150px] h-[150px] z-50  rounded-xl "
             >
-              {result.title}
+              <Image src={img} height="170px" width="150px" objectFit="cover" />
+              <br />
+              {title}
+              <br />
             </Popup>
           ) : (
             false

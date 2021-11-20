@@ -1,26 +1,28 @@
 import Image from "next/image";
 import {
-  GlobalAltIcon,
   MenuIcon,
   UserCircleIcon,
   UsersIcon,
   SearchIcon,
   GlobeAltIcon,
 } from "@heroicons/react/solid";
-import { useState } from "react";
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css"; // theme css file
+
 import { DateRangePicker } from "react-date-range";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css";
+
+import { useState } from "react"; // theme css file
 import { useRouter } from "next/dist/client/router";
 
 //  setState
 
 function Header({ placeholder }) {
+  const router = useRouter();
+
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuest, setNoOfGuest] = useState(1);
-  const router = useRouter();
   const [showSearch, setShowSearch] = useState(false);
 
   // console.log(searchInput);
@@ -54,25 +56,31 @@ function Header({ placeholder }) {
     });
   };
 
-  const handleSearch = () => {
-    setShowSearch(!showSearch);
-  };
+  // const handleSearch = () => {
+  //    setShowSearch(!showSearch);
+  // };
+
   return (
     // pading in x-axis 5 -> py-5, pading-5 in all direction -> p-5
     // padding-left:5 -> pl-5
-    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10 ">
+
+    <header className="sticky top-0 x-50 items-center md:grid md:grid-cols-3 flex bg-white shadow-md p-3 md:px-10 z-50">
       {/* left */}
       <div
         onClick={() => router.push("/")}
         className="relative flex items-center h-10 cursor-pointer my-auto "
       >
         <Image
-          src="https://links.papareact.com/qd3"
+          // src="https://links.papareact.com/qd3"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
           alt=""
-          layout="fill"
+          // layout="fill"
           objectFit="contain"
           objectPosition="left"
-          // className="hover:animate-bounce"
+          className="hover:animate-bounce"
+          width={100}
+          height={80}
+          // use either layout = "fill" or width,height
         />
       </div>
 
@@ -84,21 +92,23 @@ function Header({ placeholder }) {
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          className=" flex-grow pl-5 bg:transparent outline-none text-sm text-gray-600 placeholder-gray-400"
+          className=" flex-grow pl-5 bg-transparent outline-none text-md text-gray-600 placeholder-gray-400 text-xs sm:text-sm lg:text-md xl:text-lg"
           type="text"
           placeholder={placeholder || "Start your search"}
         />
 
-        <SearchIcon className="h-8 hidden md:inline-flex bg-red-400 text-white rounded-full p-2 cursor-poiter md:mx-2" />
+        <SearchIcon className="h-8 hidden hover:animate-spin md:inline-flex bg-red-400 text-white rounded-full p-2 cursor-poiter md:mx-2" />
       </div>
 
       {/* Right */}
       <div className="flex items-center space-x-4 justify-end  text-gray-500">
-        <p className="hidden md:inline cursor-pointer">Become a host</p>
+        <p className=" hover:bg-gray-100 py-2 px-3 rounded-full hidden md:inline cursor-pointer">
+          Become a host
+        </p>
 
-        <GlobeAltIcon className="h-6 cursor-pointer hover:animate-spin" />
+        <GlobeAltIcon className="h-6 cursor-pointer hover:animate-spin bg-gray-50 " />
 
-        <div className="flex items-center space-x-2 border-2 p-2 rounded-full shadow-sm">
+        <div className="items-center border-2 space-x-2 rounded-full p-2 cursor-pointer hover:shadow-md hidden md:flex">
           <MenuIcon className="h-6" />
           <UserCircleIcon className="h-6" />
         </div>
@@ -111,27 +121,35 @@ function Header({ placeholder }) {
             minDate={new Date()}
             rangeColors={["#FD6064"]}
             onChange={handleSelect}
+            className="bg-transparent"
           />
 
-          <div className="flex items-center border-b mb-4">
-            <h2 className="text-2xl pl-2 flex-grow font-semibold">
+          <div className="flex items-center  mb-4">
+            <h2 className="text-2xl pl-2 flex-grow font-mono font-semibold text-gray-600 ">
               Number of Guests
             </h2>
-            <UsersIcon className="h-5" />
+            <UsersIcon className="h-5 mr-4 text-gray-600" />
             <input
               value={noOfGuest}
               onChange={(e) => setNoOfGuest(e.target.value)}
               min={1}
               type="number"
-              className="w-12 pl-2 text-lg outline-none text-red-400"
+              className="w-16 pl-2 text-lg outline-none text-[#FF385C] cursor-default border-2  rounded-md"
             />
           </div>
-          <div className="flex">
-            <button onClick={resetInput} className="flex-grow text-gray-500">
+
+          <div className="flex border-t ">
+            <button
+              className="flex-grow py-2 text-gray-500 font-semibold hover:bg-[#ff385d54] transition duration-150"
+              onClick={resetInput}
+            >
               Cancel
             </button>
-            <button onClick={search} className="flex-grow text-red-400">
-              Search
+            <button
+              onClick={search}
+              className="flex-grow py-2 font-semibold text-[#FF385C] hover:bg-gray-200 transition duration-150"
+            >
+              <div onClick={resetInput}>Search</div>
             </button>
           </div>
         </div>

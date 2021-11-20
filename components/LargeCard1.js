@@ -19,7 +19,8 @@ function LargeCard1({ img, title, description, buttonText }) {
         <p className="text-m text-white">{description}</p>
 
         <button className="text-m font-semibold text-black bg-white px-4 py-2 rounded-lg mt-5 shadow-md active:scale-90 transition duration-150 ease-out">
-          {buttonText}
+          {buttonText}{" "}
+          <a href="https://github.com/kumaratul60" className="font-bold">dev</a>
         </button>
       </div>
     </section>

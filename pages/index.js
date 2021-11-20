@@ -52,7 +52,7 @@ export default function Home({ exploreData, cardData }) {
           img="https://a0.muscache.com/im/pictures/2595054e-d1d9-4fde-8046-58d51fcb3164.jpg?im_w=1440"
           title="Try hosting"
           description="Earn extra income and unlock new opportunities."
-          buttonText="Learn more"
+          buttonText="Learn more about"
         />
 
         <LargeCard
@@ -60,7 +60,7 @@ export default function Home({ exploreData, cardData }) {
           img="https://links.papareact.com/4cj"
           title="The greatest Outdoors"
           description="Wishlists curated by Airbnb."
-          buttonText="Get Inspired"
+          buttonText="Get Inspired by"
         />
       </main>
 

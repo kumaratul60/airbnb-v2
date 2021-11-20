@@ -1,12 +1,15 @@
+import React, { useState } from "react";
+
 import { StarIcon } from "@heroicons/react/solid";
 import { HeartIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 
 function InfoCard({ img, location, title, description, star, price, total }) {
-  return (
-    <div className="flex py-7 px-2  pr-4 mt-2 border rounded-2xl cursor-pointer hover:opacity-80 hover:shadow-lg  hover:from-red-200 hover:border-red-900  active:scale-105  transition duration-200 ease-out first:border-t-2 ">
-      {/* <div className="flex py-7 px-2 pr-4 border-b rounded-2xl cursor-pointer hover:shadow-lg hover:bg-gradient-to-t hover:from-red-200 hover:text-red-900 active:scale-105 transform transition duration-200 ease-out first:border-t-2"> */}
+  const [heartColor, setHeartColor] = useState(true);
 
+  return (
+    // <div className="flex py-7 px-2  pr-4 mt-2 border rounded-2xl cursor-pointer hover:opacity-80 hover:shadow-lg  hover:from-red-200 hover:border-red-900  active:scale-105  transition duration-200 ease-out first:border-t-2 ">
+    <div className="flex py-7 px-2 pr-4 border-b rounded-2xl cursor-pointer hover:shadow-lg hover:bg-gradient-to-t hover:from-red-200 hover:text-red-900   first:border-t-2">
       <div className="relative h-24 w-24 md:h-52 md:w-80 flex-shrink-0  ">
         <Image
           src={img}
@@ -18,7 +21,12 @@ function InfoCard({ img, location, title, description, star, price, total }) {
       <div className="flex flex-col flex-grow pl-5">
         <div className="flex justify-between">
           <p>{location}</p>
-          <HeartIcon className="h-7  cursor-pointer" />
+
+          <HeartIcon
+            fill={heartColor ? "transparent" : "#FF0000"}
+            className="h-7 transform transition duration-300"
+            onClick={() => setHeartColor(!heartColor)}
+          />
         </div>
 
         <h4 className="title-xl ">{title}</h4>
